@@ -1,0 +1,20 @@
+sudo: required
+
+services:
+  - docker
+
+language: go
+
+before_install:
+  - sudo add-apt-repository 'deb https://dl.bintray.com/mh-cbon/deb unstable main'
+  - sudo apt-get -qq update
+  - sudo apt-get install --allow-unauthenticated changelog go-bin-deb emd gh-api-cli go-msi gump
+  - docker pull fedora
+
+script:
+  - changelog -v
+  - go-bin-deb -v
+  - emd -version
+  - gh-api-cli -v
+  - go-msi -v
+  - gump -v
