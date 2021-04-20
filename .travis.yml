@@ -36,7 +36,7 @@ before_install:
 install:
 # specific to a go project
 - cd $GOPATH/src/github.com/$TRAVIS_REPO_SLUG
-- glide install
+#- glide install
 - go install
 
 script:
